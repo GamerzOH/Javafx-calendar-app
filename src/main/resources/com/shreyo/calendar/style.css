@@ -1,0 +1,339 @@
+.root {
+
+    /*Color variables*/
+
+    -white-beige: #EAF2D7;
+    -dark-pink: #E27396;
+    -dark-bg-pink: #c05174;
+    -light-blue: #B3DEE2;
+    -light-blue-darker: #A2CDD1;
+    -dark-green: #A7C957;
+    -black: #100B00;
+    -light-purple: #aaf;
+    -black-gray: #222;
+    -black-light: #111;
+
+    /*--Separator variables--*/
+    -separator-height: 20px;
+    -separator-width: 2px;
+
+    /*--Styles--*/
+
+    -fx-background-color: -black-gray;
+    -fx-text-background-color: -white-beige;
+    /*-fx-font-size: 24px;*/
+    -fx-font-family: "sans-serif";
+}
+
+.button {
+    -fx-background-color: -black-gray;
+    -fx-text-fill: -white-beige;
+}
+
+#dateLabel {
+    -fx-font-size: 20px;
+    -fx-padding: 0 12;
+}
+
+#calendarGrid {
+    -fx-alignment: center;
+}
+
+.calendar-pane {
+    -fx-padding: 16;
+}
+
+.calendar-cont {
+    -fx-background-color: -black-light;
+    -fx-background-radius: 16;
+    -fx-spacing: 16;
+    /*-fx-min-height: 350px;*/
+    -fx-padding: 20 16;
+}
+
+.day-label {
+    -fx-font-size: 16px;
+    -fx-text-background-color: -white-beige;
+    -fx-alignment: center;
+}
+
+.date-cell {
+    -fx-text-background-color: -white-beige;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    -fx-pref-height: 48px;
+    -fx-pref-width: 48px;
+    -fx-background-radius: 24px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 24px;
+    -fx-border-color: -black-light;
+    -fx-opacity: 0.5;
+}
+
+.date-cell.today {
+    -fx-background-color: -dark-pink;
+}
+
+.date-cell.curr-month {
+    -fx-opacity: 1;
+}
+
+.date-cell.selected {
+    -fx-border-color: -dark-pink;
+}
+
+.date-cell.selected .day-label {
+    -fx-text-fill: -dark-pink;
+}
+
+.date-cell.today .day-label {
+    -fx-text-fill: -black-light;
+}
+
+.date-cell.today.selected {
+    -fx-border-color: -white-beige;
+}
+
+.date-cell.today.selected .day-label {
+    -fx-text-fill: -black-light;
+}
+
+.date-cell.today:hover {
+    -fx-background-color: -dark-pink;
+    -fx-cursor: pointer;
+}
+
+.date-cell:hover {
+    -fx-cursor: hand;
+    -fx-background-color: -black-gray;
+}
+
+.date-cell .event-dot {
+    -fx-background-color: -light-blue;
+    -fx-min-width: 6px;
+    -fx-max-width: 6px;
+    -fx-min-height: 6px;
+    -fx-max-height: 6px;
+    -fx-background-radius: 100%;
+}
+
+/*Styling month left and right buttons*/
+
+#prevMon, #nextMon {
+    -fx-text-background-color: -white-beige;
+    -fx-background-color: -black-gray;
+    /*-fx-padding: 0 6 4 6;*/
+    -fx-font-size: 24px;
+    -fx-alignment: center;
+    -fx-pref-height: 24px;
+    -fx-background-insets: 0;
+    /*-fx-padding: 4px 8px 8px 8px;*/
+}
+
+#prevMon {
+    -fx-background-radius: 12px 0 0 12px;
+}
+
+#nextMon {
+    /*-fx-padding: 0 0 4 0;*/
+    -fx-background-radius: 0 12px 12px 0;
+}
+
+#prevMon:hover, #nextMon:hover {
+    -fx-background-color: -black;
+    -fx-text-fill: -white-beige;
+}
+
+/*--Styling tasks and right side of the application--*/
+
+.tasks-bar {
+    -fx-padding: 12 8;
+    -fx-background-color: -black-gray;
+    -fx-alignment: center;
+    -fx-font-size: 20px;
+    -fx-spacing: 12px;
+}
+
+.tasks-bar .separator {
+    -fx-pref-height: -separator-height;
+    -fx-pref-width: -separator-width;
+    -fx-min-height: -separator-height;
+    -fx-min-width: -separator-width;
+    -fx-max-height: -separator-height;
+    -fx-max-width: -separator-width;
+    -fx-background-color: -white-beige;
+    -fx-background-radius: 1px;
+}
+
+#addTask {
+    -fx-padding: 8px 16px;
+    -fx-text-fill: -black-light;
+    -fx-font-weight: 600;
+    -fx-background-radius: 25px;
+    -fx-background-color: -light-blue;
+}
+
+#addTask:hover {
+    -fx-background-color: -light-blue-darker;
+    -fx-cursor: hand;
+}
+
+.tasks-cont {
+    -fx-spacing: 12px;
+    -fx-padding: 8px;
+}
+
+.tasks-pane {
+    -fx-padding: 0 12px;
+}
+
+.task-element {
+    -fx-min-width: 200px;
+    -fx-max-width: 750px;
+    -fx-padding: 12px;
+    -fx-background-color: -black-light;
+    -fx-background-radius: 12px;
+    -fx-spacing: 8px;
+}
+
+.task-element .task-topic {
+    -fx-font-size: 20px;
+}
+
+.task-element .task-priority {
+    -fx-padding: 4px 6px;
+    -fx-background-radius: 1em;
+    -fx-background-color: -black-light;
+    -fx-text-fill: -white-beige;
+}
+
+.high-tasks .task-element .task-priority {
+    -fx-background-color: -dark-pink;
+    -fx-text-fill: -black-light;
+}
+
+.reg-tasks .task-element .task-priority {
+    -fx-opacity: 0;
+}
+
+.done-tasks .task-element .task-priority {
+    -fx-background-color: -dark-green;
+    -fx-text-fill: -black-light;
+}
+
+.task-element .task-content {
+    -fx-font-size: 12px;
+    -fx-text-fill: -white-beige;
+}
+
+.task-element .read-more {
+    -fx-font-size: 12px;
+    -fx-text-fill: -white-beige;
+}
+
+.task-element .read-more:hover {
+    -fx-font-size: 12px;
+    -fx-text-fill: -light-blue-darker;
+    -fx-cursor: hand;
+}
+
+#createTaskPane {
+    -fx-alignment: center;
+    -fx-padding: 12px 16px;
+    -fx-background-color: -black-light;
+    -fx-background-radius: 12px;
+}
+
+.create-task-pane {
+    -fx-max-width: 500px;
+    -fx-max-height: 500px;
+    -fx-spacing: 20px;
+}
+
+.create-task-pane .button {
+    -fx-padding: 8px 12px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 12px;
+    -fx-background-color: -black-gray;
+    -fx-text-fill: -white-beige;
+    -fx-font-size: 16px;
+}
+
+.create-task-pane .button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: -black-light;
+}
+
+.create-task-pane .button#createTaskButton {
+    -fx-background-color: -light-blue;
+    -fx-text-fill: -black-light;
+}
+
+.create-task-pane .button#createTaskButton:hover {
+    -fx-background-color: -light-blue-darker;
+}
+
+#taskTopic,
+.text-area .scroll-pane,
+.text-area .scroll-pane .viewport,
+.text-area .scroll-pane .content,
+.text-area .content {
+    -fx-background-radius: 8px;
+    -fx-background-color: -black-gray;
+    -fx-background-insets: 0;
+}
+
+.text-area:focused .content {
+    -fx-background-color: -black-gray;
+}
+
+#taskTopic, #taskContent, #urgChkBox {
+    -fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-padding: 4px;
+    -fx-background-color: -black-gray;
+    -fx-text-fill: -white-beige;
+}
+
+#taskTopic {
+    -fx-padding: 8px 16px;
+}
+
+#urgChkBox .box {
+    -fx-padding: 0;
+    -fx-padding: 0 4px;
+}
+
+#urgChkBox .box {
+    -fx-background-color: -black-gray;
+}
+
+#urgChkBox .mark {
+    -fx-text-fill: -white-beige;
+}
+
+.context-menu {
+    -fx-background-color: -black-light;
+    -fx-background-radius: 8px;
+    -fx-padding: 6px;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-padding: 6px 14px;
+    -fx-cursor: hand;
+}
+
+.menu-item .label {
+    -fx-text-fill: -white-beige;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+.menu-item:focused,
+.menu-item:hover {
+    -fx-background-color: -black-gray;
+}

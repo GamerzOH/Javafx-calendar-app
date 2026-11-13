@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.Group?>
+
+
+<HBox fx:controller="com.shreyo.calendar.LayoutHandler" xmlns:fx="http://javafx.com">
+    <BorderPane prefWidth="420.0" styleClass="calendar-pane">
+        <top>
+            <VBox styleClass="calendar-cont">
+                <HBox alignment="CENTER">
+                    <Label fx:id="dateLabel" text="November 2026"/>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <HBox alignment="CENTER" spacing="0" styleClass="btn-cont">
+                        <Button styleClass="btn left" fx:id="prevMon" mnemonicParsing="false" text="◀" onAction="#decMonth" />
+                        <Button styleClass="btn right" fx:id="nextMon" mnemonicParsing="false" text="▶" onAction="#incMonth" />
+                    </HBox>
+                </HBox>
+                <GridPane fx:id="calendarGrid" hgap="4" vgap="4">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                        <ColumnConstraints percentWidth="14.2857" halignment="CENTER" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                        <RowConstraints percentHeight="14.2857" valignment="CENTER" />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
+        </top>
+    </BorderPane>
+    <StackPane alignment="center" HBox.hgrow="ALWAYS">
+        <VBox styleClass="sidebar-pane" minWidth="350.0" fillWidth="true" HBox.hgrow="ALWAYS">
+            <HBox styleClass="tasks-bar">
+                <Label styleClass="header-date-label" fx:id="hdrDate" />
+                <Region styleClass="separator" />
+                <Label styleClass="task-count-label" fx:id="taskCountLabel" text="" />
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="addTask" text="New Task" onAction="#newTask"/>
+            </HBox>
+            <VBox styleClass="tasks-cont">
+                <FlowPane fx:id="highTasks" styleClass="tasks-pane, high-tasks" hgap="8" vgap="8">
+                </FlowPane>
+                <FlowPane fx:id="regularTasks" styleClass="tasks-pane, reg-tasks" hgap="8" vgap="8">
+                </FlowPane>
+                <FlowPane fx:id="doneTasks" styleClass="tasks-pane, done-tasks" hgap="8" vgap="8">
+                </FlowPane>
+            </VBox>
+        </VBox>
+        <Group>
+            <StackPane fx:id="createTaskPane" visible="false" managed="false">
+            <!-- <StackPane fx:id="createTaskPane"> -->
+                <VBox styleClass="create-task-pane">
+                    <HBox>
+                        <Button fx:id="cancelTaskButton" text="Cancel" onAction="#cancelTask" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="createTaskButton" text="Create" onAction="#createTask" />
+                    </HBox>
+                    <VBox spacing="8">
+                        <HBox spacing="16" alignment="CENTER_LEFT">
+                            <TextField fx:id="taskTopic" HBox.hgrow="ALWAYS" promptText="Task Topic" />
+                            <HBox alignment="center">
+                                <Label text="Urgent " />
+                                <CheckBox fx:id="urgChkBox" />
+                            </HBox>
+                        </HBox>
+                        <TextArea fx:id="taskContent" promptText="Task Content" />
+                    </VBox>
+                </VBox>
+            </StackPane>
+        </Group>
+    </StackPane>
+</HBox>
